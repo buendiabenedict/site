@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-screen">
+        <div class="welcome-content">
+            <h1>Welcome</h1>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" style="display: none;">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#home" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#services" class="nav-item">
+                    <i class="fas fa-camera"></i>
+                    <span>Services</span>
+                </a>
+                <a href="#samples" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Samples</span>
+                </a>
+                <a href="#about" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>About</span>
+                </a>
+                <a href="#contact" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="animate-fade-in">Hi, I'm <span class="highlight">Buendia</span></h1>
+                <p class="tagline animate-fade-in">A Freelancer Specializing in Visual Storytelling and Website Design.</p>
+                <a href="#services" class="scroll-down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2>My Creative Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Video Editing</h3>
+                        <p>Professional video editing services to bring your vision to life with cinematic quality.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3>Photo Editing</h3>
+                        <p>Enhancing your images to perfection with attention to detail and creative flair.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>Videography</h3>
+                        <p>Capturing your special moments with professional videography services.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Photography</h3>
+                        <p>Stunning photography that tells your unique story through compelling imagery.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Graphics Design</h3>
+                        <p>Creative design solutions that make your brand stand out from the crowd.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Website Design & Development</h3>
+                        <p>Modern, responsive websites that showcase your brand and engage your audience effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Samples Section -->
+        <section id="samples" class="samples">
+            <div class="container">
+                <h2>Samples</h2>
+                <div class="samples-grid">
+                    <!-- Sample 1 - Image -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <img src="images/sample1.jpg" alt="Sample Work 1" loading="lazy">
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                    
+                    <!-- Sample 2 - Video -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <video autoplay muted loop playsinline preload="auto">
+                                <source src="videos/sample1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                    
+                    <!-- Sample 3 - Image -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <img src="images/sample2.jpg" alt="Sample Work 2" loading="lazy">
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                    
+                    <!-- Sample 4 - Video -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <video autoplay muted loop playsinline preload="auto">
+                                <source src="videos/sample2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                    
+                    <!-- Sample 5 - Image -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <img src="images/sample3.jpg" alt="Sample Work 3" loading="lazy">
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                    
+                    <!-- Sample 6 - Video -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <video autoplay muted loop playsinline preload="auto">
+                                <source src="videos/sample3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                                        
+                    <!-- Sample 7 - Image -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <img src="images/sample5.jpg" alt="Sample Work 5" loading="lazy">
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                    
+                    <!-- Sample 8 - Image -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <img src="images/sample6.jpg" alt="Sample Work 6" loading="lazy">
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                    
+                 <!-- Sample 9 - Image -->
+                    <div class="sample-item">
+                        <div class="media-container">
+                            <img src="images/sample4.jpg" alt="Sample Work 4" loading="lazy">
+                        </div>
+                        <div class="sample-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/your-photo.jpg" alt="Your Name" class="profile-photo">
+                    </div>
+                    <div class="about-text">
+                        <h2>About Me</h2>
+                        <p>I’m a passionate creative Grade 12 student based in Tarlac, Philippines. Despite still being in school, I’ve gained valuable experience in visual storytelling, working with amazing clients and helping bring their visions to life through various media formats.</p>
+                        <p>With a keen eye for detail and a strong understanding of visual aesthetics, I strive to create work that not only looks beautiful but also communicates ideas clearly and effectively.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Have a project in mind or want to work together? I'd love to hear from you!</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/ben.benedict.31392" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/buendia.benedict/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/buendiabenedict" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-email">
+                        <p class="or-text">Or</p>
+                        <a href="#" id="emailLink" class="email-link">buendiabenedict08@gmail.com</a>
+                        <div id="emailModal" class="email-modal">
+                            <div class="email-modal-content">
+                                <p>Copied to clipboard!</p>
+                                <div class="email-client-buttons">
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=buendiabenedict08@gmail.com" target="_blank" class="email-client-btn gmail">
+                                        <i class="fab fa-google"></i> Gmail
+                                    </a>
+                                    <a href="mailto:buendiabenedict08@gmail.com" class="email-client-btn apple-mail">
+                                        <i class="fas fa-envelope"></i> Apple Mail
+                                    </a>
+                                    <a href="https://mail.yahoo.com/compose?to=buendiabenedict08@gmail.com" target="_blank" class="email-client-btn yahoo">
+                                        <i class="fab fa-yahoo"></i> Yahoo Mail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Buendia – All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
