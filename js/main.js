@@ -1,6 +1,125 @@
 document.addEventListener('DOMContentLoaded', function() {
     const welcomeScreen = document.querySelector('.welcome-screen');
     const mainContent = document.querySelector('.main-content');
+    const loadingProgress = document.querySelector('.loading-progress');
+    const loadingText = document.querySelector('.loading-text');
+    
+    // Function to preload all media
+    function preloadMedia() {
+        const media = [];
+        let loaded = 0;
+        
+        // Get all images and videos
+        const images = document.querySelectorAll('img[data-src]');
+        const videos = document.querySelectorAll('video');
+        const totalMedia = images.length + videos.length;
+        
+        if (totalMedia === 0) {
+            showContent();
+            return;
+        }
+        
+        // Update progress function
+        function updateProgress() {
+            loaded++;
+            const progress = Math.min(Math.round((loaded / totalMedia) * 100), 100);
+            loadingProgress.style.width = `${progress}%`;
+            loadingText.textContent = `Loading media... ${progress}%`;
+            
+            if (loaded >= totalMedia) {
+                setTimeout(showContent, 500);
+            }
+        }
+        
+        // Load images
+        images.forEach(img => {
+            const image = new Image();
+            image.onload = updateProgress;
+            image.onerror = updateProgress;
+            image.src = img.getAttribute('data-src');
+            img.src = image.src;
+            img.classList.add('loaded');
+        });
+        
+        // Handle videos
+        videos.forEach(video => {
+            // Make sure video sources are properly set
+            const sources = video.querySelectorAll('source');
+            let sourcesLoaded = 0;
+            
+            sources.forEach(source => {
+                const sourceVideo = document.createElement('video');
+                sourceVideo.preload = 'auto';
+                
+                sourceVideo.onloadeddata = function() {
+                    sourcesLoaded++;
+                    if (sourcesLoaded >= sources.length) {
+                        video.classList.add('loaded');
+                        updateProgress();
+                    }
+                };
+                
+                sourceVideo.onerror = function() {
+                    sourcesLoaded++;
+                    updateProgress();
+                };
+                
+                sourceVideo.src = source.src;
+            });
+            
+            // If no sources, still count it as loaded
+            if (sources.length === 0) {
+                updateProgress();
+            }
+        });
+    }
+    
+    // Function to show content
+    function showContent() {
+        loadingText.textContent = 'Almost there...';
+        loadingProgress.style.width = '100%';
+        
+        setTimeout(() => {
+            welcomeScreen.classList.add('hidden');
+            mainContent.style.display = 'block';
+            void mainContent.offsetWidth;
+            mainContent.classList.add('visible');
+            
+            // Play videos that should autoplay
+            document.querySelectorAll('video[autoplay]').forEach(video => {
+                video.muted = true; // Required for autoplay in most browsers
+                video.playsInline = true; // For iOS
+                
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Autoplay prevented:', error);
+                        video.controls = true;
+                    });
+                }
+            });
+            
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+            }, 1000);
+        }, 500);
+    }
+    
+    // Start preloading when DOM is ready
+    preloadMedia();
+    
+    // Fallback in case preloading takes too long
+    const loadTimeout = setTimeout(() => {
+        if (welcomeScreen && !welcomeScreen.classList.contains('hidden')) {
+            showContent();
+        }
+    }, 10000); // 10 second timeout
+    
+    // Clean up
+    window.addEventListener('load', () => {
+        clearTimeout(loadTimeout);
+    });
+
     const navItems = document.querySelectorAll('.nav-item');
     
     // Function to update active nav item
@@ -62,21 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Show main content after welcome animation completes
-    setTimeout(() => {
-        welcomeScreen.classList.add('hidden');
-        mainContent.style.display = 'block';
-        void mainContent.offsetWidth; // Trigger reflow
-        mainContent.classList.add('visible');
-        
-        // Initialize active nav item after content is visible
-        updateActiveNav();
-        
-        setTimeout(() => {
-            welcomeScreen.style.display = 'none';
-        }, 1000);
-    }, 3000);
     
     // Initialize active nav on page load
     updateActiveNav();
